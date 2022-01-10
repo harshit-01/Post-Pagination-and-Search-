@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar'
+import Post from './components/Post'
+import axios from 'axios';
+import {useState} from  "react";
+
 
 function App() {
+  const [searchVal,setSearchVal] = useState("");
+  const searchBar= (val)=>{
+    console.log(val)
+    setSearchVal(val);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <Navbar searchBar ={searchBar}/>
+        <Post searchVal={searchVal}/>
     </div>
   );
 }
