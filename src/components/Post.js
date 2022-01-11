@@ -3,6 +3,7 @@ import React,{useEffect,useState,useRef} from 'react';
 import axios from 'axios';
 import Button from '@mui/material/Button';
 import Cards from './Cards'
+import './Post.css'
 
 export default function Post({searchVal}) {
   const [info,setInfo] = useState([]);
@@ -131,7 +132,7 @@ export default function Post({searchVal}) {
               if(i>=minPageNumLimit && i<=maxPageNumLimit){
                 return (
                   <>
-                    <button key={ind} id={i} ref={currentIndex} type="button" class="btn btn-outline-primary" onClick={handleClick}>{i}</button>
+                    <button key={ind} id={i} ref={currentIndex} type="button" className={`btn btn-outline-primary ${(currentPage===i)?'curButton':''}`} onClick={handleClick}>{i}</button>
                   </>
                 )
               }
